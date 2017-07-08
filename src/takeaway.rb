@@ -1,5 +1,6 @@
 require_relative 'menu'
 require_relative 'order'
+require_relative 'notification'
 
 class Takeaway
 
@@ -25,4 +26,10 @@ class Takeaway
   def place_order
     @orders[@current_order.view_basket] = @current_order.total
   end
+
+  def notify_customer(order)
+    message = "Thanks for your custom. Your order total is #{order.total}"
+    notification = Notification.new(message)
+  end
+
 end
