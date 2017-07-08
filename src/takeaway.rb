@@ -3,7 +3,7 @@ require_relative 'order'
 
 class Takeaway
 
-  def initialize(menu = Menu.new({:test_item_1 => 0.01}))
+  def initialize(menu = Menu.new({ :test_item_1 => 0.01 }))
     @menu = menu
   end
 
