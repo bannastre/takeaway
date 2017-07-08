@@ -1,3 +1,5 @@
+require_relative 'menu.rb'
+
 class Order
 
   def initialize
@@ -6,6 +8,7 @@ class Order
 
   def add_to_basket(dish, quantity)
     @basket[dish] = quantity
+    view_basket
   end
 
   def view_basket
