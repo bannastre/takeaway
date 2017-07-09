@@ -7,19 +7,19 @@ class Notification
     @message = message
   end
 
-  def send
-    account_sid = ACCOUNT_SID
-    auth_token = AUTH_TOKEN
-    from = FROM
-    to = TO
+  def generate_and_send(to)
+    client = Twilio::REST::Client.new ACCOUNT_SID, AUTH_TOKEN
+    send(client)
+  end
 
-    @client = Twilio::REST::Client.new account_sid, auth_token
+  private
 
-    message = @client.account.messages.create(
+  def send(client)
+    client.account.messages.create(
       :to   => to,
-      :from => from,
+      :from => FROM,
       :body => @message
       )
-  end
+    end
 
 end

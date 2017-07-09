@@ -1,4 +1,5 @@
 require_relative 'menu.rb'
+require_relative 'notification'
 
 class Order
 
@@ -22,6 +23,17 @@ class Order
       total += @menu.view_item_price(dish) * quantity if @menu.view_item_price(dish)
     end
     total
+  end
+
+  def confirm(number)
+    notification = Notification.new("Your order total is #{total}")
+    send_notification(number)
+  end
+
+  private
+
+  def send_notification(notification, number)
+    notification.send(number)
   end
 
 end

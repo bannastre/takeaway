@@ -11,9 +11,15 @@ describe Order do
     expect(order.view_basket).to eq(:test_item_1 => 2)
   end
 
+  before(:each) { allow(menu).to receive(:view_item_price).and_return(0.01) }
+
   it 'knows the total for the items in the basket' do
-    allow(menu).to receive(:view_item_price).and_return(0.01)
     expect(order.total).to eq(0.02)
+  end
+
+  it 'can send an order confirmation' do
+    expect(order).to receive(:send_notification).with('+447843627130')
+    order.confirm('+447843627130')
   end
 
 end
