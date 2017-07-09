@@ -22,4 +22,8 @@ describe Order do
     order.confirm('+447843627130')
   end
 
+  it 'knows when orders are created' do
+    expect(order.time).to match(Time.now.strftime "%H:%M")
+  end
+
 end

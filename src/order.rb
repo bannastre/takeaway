@@ -6,6 +6,7 @@ class Order
   def initialize(menu = Menu.new)
     @menu = menu
     @basket = {}
+    @time_created = Time.now
   end
 
   def add_to_basket(dish, quantity)
@@ -25,15 +26,19 @@ class Order
     total
   end
 
+  def time
+    @time_created.strftime "%H:%M"
+  end
+
   def confirm(number)
-    notification = Notification.new("Your order total is #{total}")
-    send_notification(number)
+    notification = Notification.new("Your order total is £#{total} and will be delivered at #{(@time_created + 3600).strftime("%H:%M")}")
+    send_notification(notification, number)
   end
 
   private
 
   def send_notification(notification, number)
-    notification.send(number)
+    notification.generate_and_send(number)
   end
 
 end
