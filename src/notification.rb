@@ -10,6 +10,7 @@ class Notification
   def generate_and_send(to)
     client = Twilio::REST::Client.new ACCOUNT_SID, AUTH_TOKEN
     send(client, to)
+    return 'Notification sent'
   end
 
   private

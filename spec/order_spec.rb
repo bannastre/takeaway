@@ -18,7 +18,7 @@ describe Order do
   end
 
   it 'can send an order confirmation' do
-    expect(order).to receive(:send_notification).with('+447843627130')
+    expect(order).to receive(:send_notification)
     order.confirm('+447843627130')
   end
 
