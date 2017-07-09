@@ -1,4 +1,5 @@
 require './src/notification.rb'
+require_relative '../api_keys.rb'
 
 describe Notification do
 
@@ -9,7 +10,7 @@ describe Notification do
 
   it 'sends a notification' do
     expect(notification).to receive(:send)
-    notification.generate_and_send('+447843627130')
+    notification.generate_and_send(TO)
   end
 
 end

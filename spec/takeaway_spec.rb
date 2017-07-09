@@ -11,7 +11,7 @@ describe Takeaway do
   end
 
   it 'can place a new order' do
-    expect{ takeaway.new_order }.to change{ takeaway.view_orders.length }.by(1)
+    expect { takeaway.new_order }.to change { takeaway.view_orders.length }.by(1)
   end
 
   it 'knows all orders requested of the takeaway' do

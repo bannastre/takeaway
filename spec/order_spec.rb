@@ -1,4 +1,5 @@
 require './src/order.rb'
+require_relative '../api_keys.rb'
 
 describe Order do
 
@@ -19,7 +20,7 @@ describe Order do
 
   it 'can send an order confirmation' do
     expect(order).to receive(:send_notification)
-    order.confirm('+447843627130')
+    order.confirm(TO)
   end
 
   it 'knows when orders are created' do

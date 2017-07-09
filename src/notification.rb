@@ -21,6 +21,6 @@ class Notification
       :from => FROM,
       :body => @message
       )
-    end
+  end
 
 end
